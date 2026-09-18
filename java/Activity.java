@@ -1,5 +1,7 @@
 package br.ulbra.pedrapapeltisoura;
 
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,7 +15,6 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Variáveis globais do placar
     private int vitorias = 0;
     private int derrotas = 0;
     private int empates = 0;
@@ -24,6 +25,19 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        // Aplica o degradê do Rio Grande do Sul via código Java no fundo da tela
+        View mainLayout = findViewById(R.id.main);
+        int[] coresGauchas = {
+                Color.parseColor("#007A33"), // Verde
+                Color.parseColor("#DA1212"), // Vermelho
+                Color.parseColor("#FFDA29")  // Amarelo
+        };
+        GradientDrawable gradientDrawable = new GradientDrawable(
+                GradientDrawable.Orientation.TL_BR, // Diagonal: Top-Left to Bottom-Right
+                coresGauchas
+        );
+        mainLayout.setBackground(gradientDrawable);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -31,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // Métodos chamados ao clicar nas imagens de cada opção
     public void selecionarPedra(View view) {
         opcaoSelecionada("pedra");
     }
@@ -44,17 +57,14 @@ public class MainActivity extends AppCompatActivity {
         opcaoSelecionada("tesoura");
     }
 
-    // Lógica do sorteio da jogada do App
     private void opcaoSelecionada(String escolhaUsuario) {
         ImageView imageApp = findViewById(R.id.imageResultado);
         TextView textResultado = findViewById(R.id.textResultado);
 
-        // Gera a escolha aleatória do App entre pedra, papel e tesoura
         String[] opcoes = {"pedra", "papel", "tesoura"};
         int numeroAleatorio = new Random().nextInt(3);
         String escolhaApp = opcoes[numeroAleatorio];
 
-        // Atualiza a imagem exibida conforme o sorteio do App
         switch (escolhaApp) {
             case "pedra":
                 imageApp.setImageResource(R.drawable.pedra);
@@ -67,11 +77,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
-        // Chama a verificação do resultado e atualiza o placar
         verificarGanhador(escolhaUsuario, escolhaApp, textResultado);
     }
 
-    // Validação do resultado usando .equals() e atualização do placar
     private void verificarGanhador(String escolhaUsuario, String escolhaApp, TextView textResultado) {
         if (
                 (escolhaApp.equals("tesoura") && escolhaUsuario.equals("papel")) ||
@@ -92,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
             textResultado.setText("Empatamos! ;)");
         }
 
-        // Atualiza o texto do placar na tela
         TextView textPlacar = findViewById(R.id.textPlacar);
         textPlacar.setText("Vitórias: " + vitorias + " | Derrotas: " + derrotas + " | Empates: " + empates);
     }
