@@ -1,4 +1,4 @@
-# 🥊 JOKENNPÔ DOS PAMPAS
+# 🥊 JOKENPÔ DOS PAMPAS
 
 Um aplicativo Android simples e divertido do clássico jogo "Pedra, Papel e Tesoura", personalizado com as cores e a identidade do Rio Grande do Sul.
 
