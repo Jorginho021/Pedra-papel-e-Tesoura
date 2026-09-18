@@ -10,9 +10,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Escolha do App"
+        android:text="Jokenpô dos pampas"
         android:textSize="22sp"
         android:textStyle="bold"
+        android:textColor=" #EE302F"
         android:layout_marginTop="32dp" />
 
     <ImageView
@@ -28,9 +29,10 @@
         android:layout_height="wrap_content"
         android:text="Escolha uma opção abaixo"
         android:textSize="18sp"
+        android:textColor="#69A82F"
+        android:textStyle="bold"
         android:layout_marginBottom="24dp" />
 
-    <!-- Opções de jogada do usuário -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,7 +64,6 @@
             android:src="@drawable/tesoura" />
     </LinearLayout>
 
-    <!-- Placar do jogo -->
     <TextView
         android:id="@+id/textPlacar"
         android:layout_width="wrap_content"
@@ -70,6 +71,7 @@
         android:text="Vitórias: 0 | Derrotas: 0 | Empates: 0"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:textColor="#000000"
         android:layout_marginTop="40dp" />
 
 </LinearLayout>
