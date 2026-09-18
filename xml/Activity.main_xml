@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escolha do App"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginTop="32dp" />
+
+    <ImageView
+        android:id="@+id/imageResultado"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_margin="24dp"
+        android:src="@drawable/padrao" />
+
+    <TextView
+        android:id="@+id/textResultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escolha uma opção abaixo"
+        android:textSize="18sp"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Opções de jogada do usuário -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imgPedra"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_margin="8dp"
+            android:onClick="selecionarPedra"
+            android:src="@drawable/pedra" />
+
+        <ImageView
+            android:id="@+id/imgPapel"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_margin="8dp"
+            android:onClick="selecionarPapel"
+            android:src="@drawable/papel" />
+
+        <ImageView
+            android:id="@+id/imgTesoura"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_margin="8dp"
+            android:onClick="selecionarTesoura"
+            android:src="@drawable/tesoura" />
+    </LinearLayout>
+
+    <!-- Placar do jogo -->
+    <TextView
+        android:id="@+id/textPlacar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vitórias: 0 | Derrotas: 0 | Empates: 0"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp" />
+
+</LinearLayout>
